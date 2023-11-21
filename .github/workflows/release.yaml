@@ -2,8 +2,9 @@
 
 name: Websocket Utility Release
 on:
-  tags:
-    - v*
+  push:
+    tags:
+      - v*
 
 jobs:
   build:
