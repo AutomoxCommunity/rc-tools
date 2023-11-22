@@ -1,6 +1,4 @@
-# write a github action to add builds of this go project for linux, windows, and macos to the repository's release page
-
-name: Websocket Utility Release
+name: Release
 on:
   push:
     tags:
@@ -10,7 +8,7 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  build_websocket_utility:
     name: Build and Release
     runs-on: ubuntu-latest
     strategy:
@@ -35,7 +33,7 @@ jobs:
         with:
           files: |
             ${{ env.FILENAME }}
-  release_html:
+  release_echo_html:
     name: Release HTML
     runs-on: ubuntu-latest
     needs: build
