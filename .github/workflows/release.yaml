@@ -23,7 +23,7 @@ jobs:
         with:
           go-version: '1.21'
       - name: Build
-        run: GOARCH=${{ matrix.go_arch }} GOOS=${{ matrix.go_os }} go build -o ${{ env.FILENAME }} cmd/websocket-utility/main.go
+        run: GOARCH=${{ matrix.go_arch }} GOOS=${{ matrix.go_os }} go build -o ${{ env.FILENAME }} cmd/websocket-utility/main.go && chmod +x ${{ env.FILENAME }}
         env:
           FILENAME: websocket-utility-${{ matrix.go_os }}-${{ matrix.go_arch }}${{ matrix.go_os == 'windows' && '.exe' || '' }}
       - name: Release Binary
